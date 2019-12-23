@@ -1,0 +1,21 @@
+In questo file inserisco tutte quelle che sono le classi che non servono e non vanno bene per il gioco che segue delle istruzioni di asp 
+
+Ora devo creare degli elementi 
+Faccio questa prova: mi creo un elemento su una riga di strada e poi lo faccio proseguire
+Ogni riga avra 3-4 elementi facciamo cosi e vengono alternati per fare in modo di apparire quando sono nella matrice
+
+devo usare e scegliere delle strutture dati che mi permettano di effettuare determinate operazioni e che siano coerenti a determinate situazioni
+io devo controllare che la rana non abbia nessuna collisione con nessun elemento che non gli dia problemi
+io devo controllare che la rana non abbia alcuna collisione con un elemento che le possa nuocere
+
+oss:
+ogni linea ha un tempo diverso per cui devo usare un contatore diverso per il thread
+
+SPOSTAMENTO SULL'ACQUA:
+quando la rana si trova su un oggetto sull'acqua allora la rana acquisisce:
+1. movimento in direzione dello spostamento dell'oggetto che presiede
+2. se l'oggetto si sposta allora si posta la rana
+QUINDI quando vado a spostare gli oggetti sull'acqua, se la rana è sopra uno di questi allora si sposta anch'essa con esso.
+
+devo creare due compartimenti:
+created by e powered by con una animazione
