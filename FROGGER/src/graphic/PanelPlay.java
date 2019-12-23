@@ -45,7 +45,6 @@ public class PanelPlay extends JPanel implements Runnable{
 				if(gestoreLogica.matrix[i][j] == Impostazioni.RANA) 
 				{
 					g.drawImage(Main.immagini.getFrog(), /*j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES*/j*Impostazioni.SIZE_TILES,i*50,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
-					System.out.println(j*Impostazioni.SIZE_TILES +" " + i*Impostazioni.SIZE_TILES);
 				}
 				else if(gestoreLogica.matrix[i][j] == Impostazioni.ACQUA)
 				{

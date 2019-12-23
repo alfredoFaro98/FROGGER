@@ -107,9 +107,9 @@ public class GestoreLogica implements Runnable{
 			if(j%5 == 0)
 				this.matrix[8][j] = Impostazioni.AUTO;
 		}
-		this.matrix[8][1] = Impostazioni.AUTO;
-		this.matrix[8][6] = Impostazioni.AUTO;
-		this.matrix[8][7] = Impostazioni.AUTO;
+//		this.matrix[8][1] = Impostazioni.AUTO;
+//		this.matrix[8][6] = Impostazioni.AUTO;
+//		this.matrix[8][7] = Impostazioni.AUTO;
 		
 	}
 	
@@ -119,7 +119,7 @@ public class GestoreLogica implements Runnable{
 				this.matrix[7][i] = Impostazioni.CAMION;
 			}
 		}
-		this.matrix[7][5] = Impostazioni.CAMION;
+//		this.matrix[7][5] = Impostazioni.CAMION;
 	}
 	
 	
@@ -128,15 +128,15 @@ public class GestoreLogica implements Runnable{
 			if(j%5 == 0)
 				this.matrix[9][j] = Impostazioni.AUTO;
 		}
-		this.matrix[9][1] = Impostazioni.AUTO;
-		this.matrix[9][6] = Impostazioni.AUTO;
-		this.matrix[9][7] = Impostazioni.AUTO;
+//		this.matrix[9][1] = Impostazioni.AUTO;
+//		this.matrix[9][6] = Impostazioni.AUTO;
+//		this.matrix[9][7] = Impostazioni.AUTO;
 		
 	}
 	
 	private void creaPersonaggi_11() {
 		for(int j = 0; j< Impostazioni.COLS; j++) {
-			if(j%3 == 0)
+			if(j%4 == 0)
 				this.matrix[11][j] = Impostazioni.AUTO;
 		}
 	}
@@ -146,8 +146,8 @@ public class GestoreLogica implements Runnable{
 			if(j%4 == 0)
 				this.matrix[10][j] = Impostazioni.AUTO;
 		}
-		this.matrix[10][1] = Impostazioni.AUTO;
-		this.matrix[10][7] = Impostazioni.AUTO;
+//		this.matrix[10][1] = Impostazioni.AUTO;
+//		this.matrix[10][7] = Impostazioni.AUTO;
 
 	}
 	
