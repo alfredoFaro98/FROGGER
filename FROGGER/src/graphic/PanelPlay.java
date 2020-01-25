@@ -103,7 +103,7 @@ public class PanelPlay extends JPanel implements Runnable{
 	}
 	
 	public void disegnaGameOver(Graphics g) {
-		if(!this.gestoreLogica.inGioco)
+		if(!this.gestoreLogica.inGioco && !this.gestoreLogica.vinto)
 			g.drawImage(Main.immagini.getGameOver(), Impostazioni.WIDHT_PLAY/5,Impostazioni.HEIGHT_PLAY/3, null);
 	}
 	

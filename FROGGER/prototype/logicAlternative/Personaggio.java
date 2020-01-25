@@ -1,13 +1,22 @@
 package logicAlternative;
 
 import config.Impostazioni;
+import it.unical.mat.embasp.languages.Id;
+import it.unical.mat.embasp.languages.Param;
 
-public class Personaggio extends Elemento implements Runnable{
-	
+@Id("rana")
+public class Personaggio extends Elemento implements Runnable {
 	
 	protected int velocita;
 	protected int direzione;
 	protected int img_corr = 0;
+	
+	@Param(0)
+	protected int x;
+	
+	@Param(1)
+	protected int y;
+	
 	
 	public Personaggio(int width, int height, int x, int y, int lunghezzaSalto, int direzione) {
 		super(width, height, x, y);
@@ -15,6 +24,12 @@ public class Personaggio extends Elemento implements Runnable{
 		this.direzione = direzione;
 		new Thread(this).start();
 	}
+	
+	public Personaggio(int x, int y) {
+		super(x, y);
+	}
+	
+	public Personaggio() {}
 
 
 	public int getVelocita() {

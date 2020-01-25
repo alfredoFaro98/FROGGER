@@ -219,15 +219,6 @@ public class GestoreLogica implements Runnable{
 	}
 	
 	
-	private void stampaMatrice() {
-		for(int i = 0; i<Impostazioni.ROWS; i++) {
-			for(int j = 0; j<Impostazioni.COLS; j++) {
-				System.out.print(this.matrix[i][j]);
-			}
-			System.out.println();
-		}
-	}
-	
 	public boolean collisioneConNemico() {
 		if(
 		   (this.matrix[rana.getY()/Impostazioni.SIZE_TILES][rana.getX()/Impostazioni.SIZE_TILES] == Impostazioni.STRADA) || 

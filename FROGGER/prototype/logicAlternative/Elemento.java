@@ -1,13 +1,28 @@
 package logicAlternative;
 
+import config.Impostazioni;
+import it.unical.mat.embasp.languages.Id;
+import it.unical.mat.embasp.languages.Param;
+
+@Id("ostacolo")
 public class Elemento {
 	
 	protected int width;
 	protected int height;
+	
+	@Param(0)
 	protected int x;
+	
+	@Param(1)
 	protected int y;
 	
 	public Elemento() {}
+	
+	public Elemento(int x, int y) {
+		super();
+		this.x = x;
+		this.y = y;
+	}
 	
 	public Elemento(int width, int height, int x, int y) {
 		super();
@@ -49,8 +64,11 @@ public class Elemento {
 		this.y = y;
 	}
 	
+	public int getRow() {
+		return y/Impostazioni.SIZE_TILES;
+	}
 	
-	
-	
-	
+	public int getColumn() {
+		return x/Impostazioni.SIZE_TILES;
+	}
 }
