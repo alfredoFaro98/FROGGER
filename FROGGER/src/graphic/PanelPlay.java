@@ -19,8 +19,8 @@ public class PanelPlay extends JPanel implements Runnable{
 	public PanelPlay() {
 		this.setFocusable(true);
 		this.setBackground(Color.black);
-		gestoreLogica = new GestoreLogica();
-		this.addKeyListener(new frogMovementListener(this.gestoreLogica.rana, this.gestoreLogica));
+		gestoreLogica = new GestoreLogica(); 
+//		this.addKeyListener(new frogMovementListener(this.gestoreLogica.rana, this.gestoreLogica)); //commento questa parte perchè cosi erica puo iniziare a ragionare sul progetto
 		new Thread(this).start();
 		this.addKeyListener(new GameListener());
 	}

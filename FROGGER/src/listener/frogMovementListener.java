@@ -1,4 +1,4 @@
-package listener;
+ package listener;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,28 +22,24 @@ public class frogMovementListener implements KeyListener{
 		if(this.g.inGioco && !this.g.vinto) {
 			if(e.getKeyCode() == KeyEvent.VK_UP) { 		
 				if(rana.getY()/Impostazioni.SIZE_TILES>0) {
-					rana.setDirezione(Impostazioni.SOPRA);	
-					rana.setY(rana.getY()-rana.getVelocita());
+					rana.goUp();
 				}
 			}
 			else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
 				if(rana.getY()/Impostazioni.SIZE_TILES<Impostazioni.ROWS-1) {
-					rana.setDirezione(Impostazioni.SOTTO);	
-					rana.setY(rana.getY()+rana.getVelocita());
+					rana.goDown();
 				}
 				
 			}
 			else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 				if(rana.getX()/Impostazioni.SIZE_TILES > 0) {
-					rana.setDirezione(Impostazioni.SINISTRA);	
-					rana.setX(rana.getX()-rana.getVelocita());
+					rana.goLeft();
 				}
 				
 			}
 			else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
 				if(rana.getX()/Impostazioni.SIZE_TILES < Impostazioni.COLS-1) {
-					rana.setDirezione(Impostazioni.DESTRA);	
-					rana.setX(rana.getX()+rana.getVelocita());
+					rana.goRight();
 				}
 			}
 

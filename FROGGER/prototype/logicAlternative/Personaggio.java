@@ -57,6 +57,29 @@ public class Personaggio extends Elemento implements Runnable{
 		return this.img_corr;
 	}
 	
+	public void goUp()
+	{
+		this.setDirezione(Impostazioni.SOPRA);
+		this.setY(this.getY()-this.velocita);
+	}
+	
+	public void goDown()
+	{
+		this.setDirezione(Impostazioni.SOTTO);
+		this.setY(this.getY()+this.velocita);
+	}
+	
+	public void goLeft()
+	{
+		this.setDirezione(Impostazioni.SINISTRA);
+		this.setX(this.getX()-this.velocita);
+	}
+	
+	public void goRight()
+	{
+		this.setDirezione(Impostazioni.DESTRA);
+		this.setX(this.getX()+this.velocita);
+	}
 	
 	
 	
