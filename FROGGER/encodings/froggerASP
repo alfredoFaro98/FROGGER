@@ -1,9 +1,9 @@
 su|dx|sx|fermo|giu.
 
-ostacoloDx(X,Y):- ostacolo(X,Y), X<=11, X!=10, X!=8, X!=6, X>5.
-ostacoloSx(X,Y):- ostacolo(X,Y), X<=10, X!=9, X!=7, X>6.
+ostacoloDx(X,Y):- ostacolo(X,Y), X<=11, Z=X\2, Z=1, X>5.
+ostacoloSx(X,Y):- ostacolo(X,Y), X<=10, Z=X\2, Z=0, X>6.
 
-:- su, rana(X,Y), ostacoloDx(X-1,Z), Z>=Y-1, Z<=Y.
+:- su, rana(X,Y), ostacoloDx(X-1,Z), Z>=Y-1, Z<=Y+1.
 :- su, rana(X,Y), ostacoloSx(X-1,Z), Z>=Y, Z<=Y+1.
 
 :- sx, rana(X,Y), ostacolo(X,Z), Z>=Y-1, Z<=Y.
@@ -26,13 +26,20 @@ aiutanteSx(X,Y):- aiutante(X,Y), X<6, X>2.
 :~ sx. [1@1]
 :~ dx. [1@1]
 :~ fermo, rana(X,Y), X!=1. [2@1]
-:~ fermo, rana(X,Y), X!=6. [1@1]
 :~ giu. [3@1]
 
-:~ rana(X,Y), aiutanteDx(X,Y), aiutanteDx(X-1,Y-1), aiutanteDx(X-1,Y+1), not aiutanteDx(X-1,Y), not giu. [1@2, X,Y]
-:~ rana(X,Y), aiutanteSx(X,Y), aiutanteSx(X-1,Y-1), aiutanteSx(X-1,Y+1), not aiutanteSx(X-1,Y), not giu. [1@2, X,Y]
+:- rana(X,Y), aiutanteDx(X-1,Y), aiutanteDx(X-2,Y-1), aiutanteDx(X-2,Y+1), not aiutanteDx(X-2,Y), su.
+:- rana(X,Y), aiutanteSx(X-1,Y), aiutanteSx(X-2,Y-1), aiutanteSx(X-2,Y+1), not aiutanteSx(X-2,Y), su.
+:- rana(X,Y), aiutanteDx(X,Y), aiutanteDx(X-1,Y-1), aiutanteDx(X-1,Y+1), not aiutanteDx(X-1,Y), aiutante(X+1,Y), not giu.
+:- rana(X,Y), aiutanteSx(X,Y), aiutanteSx(X-1,Y-1), aiutanteSx(X-1,Y+1), not aiutanteSx(X-1,Y), aiutante(X+1,Y), not giu.
 
-:~ rana(X,Y), X<6, buco(0,Z), Z<Y, not sx. [2@2]
+:- rana(X,Y), X<=6, Y<1, aiutanteSx(X-1,Y), su.
+
+:~ rana(X,Y), Y>=1, X<=6, buco(0,Z), Z<Y, dx. [2@2]
+:~ rana(1,Y), buco(0,Z), Z>Y, not dx. [1@2]
+:~ rana(1,Y), buco(0,Z), Z<Y, not sx. [2@2]
+
+:~ rana(X,0), X<6, not aiutanteDx(X-1,0), not dx, not giu. [1@2]
 
 :~ dx, rana(X,Y), not ostacolo(X,Y), ostacoloDx(X-1,Z), Z>=Y-1, Z<=Y. [2@1, X,Y]
 :~ sx, rana(X,Y), not ostacolo(X,Y), ostacoloSx(X-1,Z), Z>=Y, Z<=Y+1. [2@1, X,Y]

@@ -27,7 +27,7 @@ public class CalcolatorePartita implements Runnable{
 	
 	public CalcolatorePartita(GestoreLogica g) {
 		this.g = g;
-		Main.handler = new DesktopHandler(new DLV2DesktopService("../FROGGER/lib/dlv2.win.x64_4"));
+		Main.handler = new DesktopHandler(new DLV2DesktopService("../FROGGER/lib/dlv2-windows-64bit-nopython"));
 		facts= new ASPInputProgram();
 		InputProgram encoding= new ASPInputProgram();
 		encoding.addFilesPath(Main.encodingResource);
@@ -46,6 +46,7 @@ public class CalcolatorePartita implements Runnable{
 			ASPMapper.getInstance().registerClass(Elemento.class);
 			ASPMapper.getInstance().registerClass(Aiutante.class);
 			ASPMapper.getInstance().registerClass(Buco.class);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -70,9 +71,10 @@ public class CalcolatorePartita implements Runnable{
 					this.g.vinto = true;
 					this.g.inGioco = false;
 				}
-				else
+				else 
 					this.g.rana.setX(Impostazioni.SIZE_TILES*4);
 					this.g.rana.setY(Impostazioni.SIZE_TILES*12);
+				
 			}
 			try {
 				Thread.sleep(Impostazioni.FPS_CALCOLATORE_PARTITA);
@@ -87,20 +89,37 @@ public class CalcolatorePartita implements Runnable{
 				
 				//passo come fatti tutti gli elementi che si trovano nella stessa riga 
 				//della rana e in quella superiore
+				int valRowPrecPrec = 0;
+				int valRowPrec = 0;
+				int valRowCorr = 0;
+				int valRowSup = 0;
 				for(int j=0; j<Impostazioni.COLS; j++) {
 					
-					int valRowPrec = this.g.matrix[frogRow-1][j];
-					int valRowCorr = this.g.matrix[frogRow][j];
+					if(frogRow>1)
+					 valRowPrecPrec = this.g.matrix[frogRow-2][j];
+					
+					valRowPrec = this.g.matrix[frogRow-1][j];
+					valRowCorr = this.g.matrix[frogRow][j];
+					
+					if(frogRow < 12)
+						valRowSup = this.g.matrix[frogRow+1][j];
+					
 					if(valRowPrec == Impostazioni.AUTO)
 						facts.addObjectInput(new Elemento(frogRow-1, j));
 					
 					if(valRowCorr == Impostazioni.AUTO)
 						facts.addObjectInput(new Elemento(frogRow, j));
 					
-					if(valRowPrec == Impostazioni.TARTARUGHE || valRowPrec == Impostazioni.TRONCO)
+					if(valRowPrec == Impostazioni.TARTARUGHE || valRowPrec == Impostazioni.TRONCO)  
 						facts.addObjectInput(new Aiutante(frogRow-1, j));
+						
+					if(j>1 && (valRowPrecPrec == Impostazioni.TARTARUGHE || valRowPrecPrec == Impostazioni.TRONCO))  
+						facts.addObjectInput(new Aiutante(frogRow-2, j));
 					
-					if(valRowCorr == Impostazioni.TARTARUGHE || valRowCorr == Impostazioni.TRONCO)
+					if(valRowSup == Impostazioni.TARTARUGHE || valRowSup == Impostazioni.TRONCO)  
+						facts.addObjectInput(new Aiutante(frogRow+1, j));
+					
+					if(valRowCorr == Impostazioni.TARTARUGHE || valRowCorr == Impostazioni.TRONCO) 
 						facts.addObjectInput(new Aiutante(frogRow, j));
 					
 					if(frogRow <= 6) {

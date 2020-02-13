@@ -35,10 +35,6 @@ public class Impostazioni {
 	public final static int SOTTO = 3;
 	public final static int NESSUNA = 4;
 
-
-	
-	
-	
 	//impostazioni numeriche dei valori che rispecchiano i vari personaggi del gioco
 	public final static int SAFEZONE = 0;
 	public final static int STRADA = 1;

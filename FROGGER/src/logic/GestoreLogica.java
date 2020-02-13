@@ -243,7 +243,7 @@ public class GestoreLogica implements Runnable{
 
 	@Override
 	public void run() {
-		while(true) {
+		while(this.inGioco) {
 			this.aggiornaPersonaggiDestra(11);
 			this.aggiornaPersonaggiDestra(9);
 			this.aggiornaPersonaggiSinistra(10);
@@ -258,7 +258,6 @@ public class GestoreLogica implements Runnable{
 			try {
 				Thread.sleep(Impostazioni.FPS_GESTORELOGICA);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
