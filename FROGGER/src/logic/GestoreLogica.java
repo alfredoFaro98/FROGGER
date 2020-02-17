@@ -10,7 +10,7 @@ public class GestoreLogica implements Runnable{
 	
 	//cose da fare:
 	//1. aggiustare la velocita dei vari elementi in movimento ---> forse per questo ci sarà bisogno di un'aòtra modellazione a LIVELLO LOGICO affinche si possano applicare delle tecniche di spostamento diverse e migliori da un punto di vista grafico.
-	//1.1 considerare4 che ogni riga deve spostarsi leggermente a veloctà di versa da un'altra riga superiore o inferiore
+	//1.1 considerare che ogni riga deve spostarsi leggermente a veloctà di versa da un'altra riga superiore o inferiore
 	//2. definire un tipo diverso di classi per DLV
 	
 	public Personaggio rana;			
@@ -20,9 +20,11 @@ public class GestoreLogica implements Runnable{
 	public int raneArrivate = 0;
 	public ArrayList<Pair> arrivate;
 	public int vite = Impostazioni.VITE;
+	public int livello = -1;
 	
-	public GestoreLogica() {
+	public GestoreLogica(int livello) {
 		
+		this.livello = livello;
 		matrix = new int[Impostazioni.ROWS][Impostazioni.COLS];
 		this.init();
 //		this.stampaMatrice();
@@ -60,7 +62,8 @@ public class GestoreLogica implements Runnable{
 		}
 	}
 	
-	public void creaPersonaggi() {
+	public void creaPersonaggi() 
+	{
 		this.creaPersonaggi_11();
 		this.creaPersonaggi_9();
 		this.creaPersonaggi_10();	
@@ -71,6 +74,8 @@ public class GestoreLogica implements Runnable{
 		this.creaTartarughe(3);
 		this.creaPersonaggi_2();
 		this.creaPersonaggi_4();
+		if(this.livello>1)
+			this.creaCoccodrilli();
 	}
 	
 	private void creaPersonaggi_2()
@@ -94,11 +99,20 @@ public class GestoreLogica implements Runnable{
 		this.matrix[4][8] = Impostazioni.TRONCO;
 	}
 	private void creaTartarughe(int riga) {
-		for(int j = 0; j< Impostazioni.COLS; j++) {
+		for(int j = 0; j<Impostazioni.COLS; j++) {
 			if(j%3 != 0)
 				this.matrix[riga][j] = Impostazioni.TARTARUGHE;
 		}
 		matrix[riga][0] = Impostazioni.TARTARUGHE;
+	}
+	
+	private void creaCoccodrilli() {
+		this.matrix[1][1] = Impostazioni.COCCODRILLO;
+		this.matrix[3][1] = Impostazioni.COCCODRILLO;
+		this.matrix[5][1] = Impostazioni.COCCODRILLO;
+		this.matrix[4][5] = Impostazioni.COCCODRILLO;
+		this.matrix[4][6] = Impostazioni.COCCODRILLO;
+		this.matrix[2][0] = Impostazioni.COCCODRILLO;
 	}
 	
 	

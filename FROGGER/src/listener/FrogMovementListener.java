@@ -7,12 +7,12 @@ import config.Impostazioni;
 import logic.GestoreLogica;
 import logicAlternative.Personaggio;
 
-public class frogMovementListener implements KeyListener{
+public class FrogMovementListener implements KeyListener{
 	
 	Personaggio rana;
 	GestoreLogica g;
 	
-	public frogMovementListener(Personaggio rana, GestoreLogica g) {
+	public FrogMovementListener(Personaggio rana, GestoreLogica g) {
 		this.rana = rana;
 		this.g = g;
 	}

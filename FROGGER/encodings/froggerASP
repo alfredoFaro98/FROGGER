@@ -3,7 +3,7 @@ su|dx|sx|fermo|giu.
 ostacoloDx(X,Y):- ostacolo(X,Y), X<=11, Z=X\2, Z=1, X>5.
 ostacoloSx(X,Y):- ostacolo(X,Y), X<=10, Z=X\2, Z=0, X>6.
 
-:- su, rana(X,Y), ostacoloDx(X-1,Z), Z>=Y-1, Z<=Y+1.
+:- su, rana(X,Y), ostacoloDx(X-1,Z), Z>=Y-1, Z<=Y.
 :- su, rana(X,Y), ostacoloSx(X-1,Z), Z>=Y, Z<=Y+1.
 
 :- sx, rana(X,Y), ostacolo(X,Z), Z>=Y-1, Z<=Y.

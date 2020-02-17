@@ -30,6 +30,9 @@ public class GestoreImmagini {
 	private ArrayList<Image>frogAnimation = null;
 	private Image sfondoCredits = null;
 	private Image logo = null;
+	private ArrayList<Image> buttonsLivel = null;
+	private Image chooseLivel = null;
+	private ArrayList<Image> croco = null;
 	
 	public GestoreImmagini() {
 		
@@ -38,6 +41,21 @@ public class GestoreImmagini {
 		this.caricaBottoniMenu();
 		this.caricaTilesets();
 		this.caricaFrogAnimation();
+		this.caricaButtonsLivel();
+		this.loadChooseTitle();
+		this.caricaCroco();
+	}
+	
+	private void caricaCroco()
+	{
+		this.croco = new ArrayList<Image>();
+		try {
+			this.croco.add(ImageIO.read(new File("risorse" + File.separator + "crocoSx.png")));
+			this.croco.add(ImageIO.read(new File("risorse" + File.separator + "crocoDx.png")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void caricaTitolo() {
@@ -49,6 +67,19 @@ public class GestoreImmagini {
 	}
 	
 	public Image getTitolo() {return this.titolo;}
+	
+	private void loadChooseTitle() {
+		try {
+			this.chooseLivel = ImageIO.read(new File("risorse" + File.separator + "chooseLivel.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Image getChooseLivel() {
+		return this.chooseLivel;
+	}
 	
 	
 	public void caricaSfondoMenu() {
@@ -72,6 +103,18 @@ public class GestoreImmagini {
 				e.printStackTrace();
 			}
 			
+	}
+	
+	public void caricaButtonsLivel() {
+		this.buttonsLivel = new ArrayList<Image>();
+		for(int i = 1; i<=Impostazioni.NUMERO_LIVELLI; i++)
+		{
+			try {
+				this.buttonsLivel.add(ImageIO.read(new File("risorse" + File.separator + "button" +i+".png")));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public ArrayList<Image> getBottoniMenu(){return this.bottoniMenu;}
@@ -114,6 +157,10 @@ public class GestoreImmagini {
 		}
 	}
 	
+	public ArrayList<Image> getCroco(){
+		return this.croco;
+	}
+	
 	public Image getStreet() {		return this.street; 	}
 	public Image getRock() {		return this.rock; 	}
 	public Image getWater() {		return this.water; 	} 
@@ -130,6 +177,6 @@ public class GestoreImmagini {
 	public Image getHeart() {		return this.heart;	}
 	public Image getBlack() {		return this.black;	}
 	public Image getLogo() {		return this.logo;	}
-	
+	public ArrayList<Image> getbuttonsLivel(){ return this.buttonsLivel;	}
 	
 }

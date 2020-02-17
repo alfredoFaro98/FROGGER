@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import config.Impostazioni;
+import graphic.PanelChooseLivel;
 import graphic.PanelCredits;
 import graphic.PanelPlay;
 import graphic.Panel_IA;
@@ -43,7 +44,7 @@ public class MenuListener extends KeyAdapter implements MouseListener {
 		{
 		case 0:
 			Main.contenitore.removeAll();
-			PanelPlay scelta = new PanelPlay();
+			PanelChooseLivel scelta = new PanelChooseLivel();
 			Main.gameFrame.setSize(Impostazioni.WIDHT_PLAY, Impostazioni.HEIGHT_PLAY);
 			Main.contenitore.add(scelta);
 			Main.contenitore.revalidate();

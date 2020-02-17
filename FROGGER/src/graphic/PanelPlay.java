@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import config.Impostazioni;
 import listener.GameListener;
 import listener.MenuListener;
-import listener.frogMovementListener;
+import listener.FrogMovementListener;
 import logic.GestoreLogica;
 import main.Main;
 
@@ -16,11 +16,11 @@ public class PanelPlay extends JPanel implements Runnable{
 	
 	GestoreLogica gestoreLogica;
 	
-	public PanelPlay() {
+	public PanelPlay(int livello) {
 		this.setFocusable(true);
 		this.setBackground(Color.black);
-		gestoreLogica = new GestoreLogica(); 
-//		this.addKeyListener(new frogMovementListener(this.gestoreLogica.rana, this.gestoreLogica)); //commento questa parte perchè cosi erica puo iniziare a ragionare sul progetto
+		gestoreLogica = new GestoreLogica(livello); 
+//		this.addKeyListener(new FrogMovementListener(this.gestoreLogica.rana, this.gestoreLogica)); //commento questa parte perchè cosi erica puo iniziare a ragionare sul progetto
 		new Thread(this).start();
 		this.addKeyListener(new GameListener());
 	}
@@ -42,7 +42,20 @@ public class PanelPlay extends JPanel implements Runnable{
 		{
 			for(int j = 0; j<Impostazioni.COLS; j++)
 			{
-				if(gestoreLogica.matrix[i][j] == Impostazioni.RANA) 
+				if(gestoreLogica.matrix[i][j] == Impostazioni.COCCODRILLO)
+				{
+					if(i == 1 || i == 2)
+					{
+						g.drawImage(Main.immagini.getWater(), j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
+						g.drawImage(Main.immagini.getCroco().get(1), j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
+					}
+					else
+					{
+						g.drawImage(Main.immagini.getWater(), j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
+						g.drawImage(Main.immagini.getCroco().get(0), j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
+					}
+				}
+				else if(gestoreLogica.matrix[i][j] == Impostazioni.RANA) 
 				{
 					g.drawImage(Main.immagini.getFrog(), /*j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES*/j*Impostazioni.SIZE_TILES,i*50,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
 				}

@@ -46,6 +46,7 @@ public class Impostazioni {
 	public final static int BUCO = 7;
 	public final static int ROCK = 8;
 	public final static int RANA = -1;
+	public final static int COCCODRILLO = 9;
 	
 	//impostazioni FPS
 	public static final int FPS_GESTORELOGICA = 1200;
@@ -56,5 +57,15 @@ public class Impostazioni {
 	//dato di riserva
 	public final static int TRASCURABILE = 0;
 	
+	//ulteriori dati
+	public final static int NUMERO_LIVELLI = 3;
+
+	public static final int WIDTH_CHOOSELIVEL = 900;
+	public static final int HEIGHT_CHOOSELIVEL = 1000;
+
+	public static final int ROWSGRIDLEVELS = 9;
+
+	public static int COLSGRIDLEVELS = 3;
+		
 
 }

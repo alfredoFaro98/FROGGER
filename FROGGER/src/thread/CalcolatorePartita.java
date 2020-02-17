@@ -104,10 +104,10 @@ public class CalcolatorePartita implements Runnable{
 					if(frogRow < 12)
 						valRowSup = this.g.matrix[frogRow+1][j];
 					
-					if(valRowPrec == Impostazioni.AUTO)
+					if(valRowPrec == Impostazioni.AUTO || valRowPrec == Impostazioni.CAMION)
 						facts.addObjectInput(new Elemento(frogRow-1, j));
 					
-					if(valRowCorr == Impostazioni.AUTO)
+					if(valRowCorr == Impostazioni.AUTO || valRowCorr == Impostazioni.CAMION)
 						facts.addObjectInput(new Elemento(frogRow, j));
 					
 					if(valRowPrec == Impostazioni.TARTARUGHE || valRowPrec == Impostazioni.TRONCO)  
@@ -164,7 +164,7 @@ public class CalcolatorePartita implements Runnable{
 			}
 			
 			try {
-				Thread.sleep(200);
+				Thread.sleep(Impostazioni.FPS_GESTORELOGICA/6);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
