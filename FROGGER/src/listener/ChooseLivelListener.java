@@ -1,17 +1,21 @@
 package listener;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 
 import config.Impostazioni;
+import graphic.PanelChooseLivel;
 import graphic.PanelCredits;
+import graphic.PanelMenu;
 import graphic.PanelPlay;
 import graphic.Panel_IA;
 import main.Main;
 
-public class ChooseLivelListener implements MouseListener {
+public class ChooseLivelListener implements MouseListener, KeyListener {
 	
 	private int sorgente;
 	private JLabel labelCorrente;
@@ -75,5 +79,30 @@ public class ChooseLivelListener implements MouseListener {
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() == e.VK_ESCAPE) {
+			Main.contenitore.removeAll();
+			PanelMenu scelta = new PanelMenu();
+			Main.gameFrame.setSize(Impostazioni.WIDHT_MENU, Impostazioni.HEIGHT_MENU);
+			Main.contenitore.add(scelta);
+			Main.contenitore.revalidate();
+			Main.contenitore.repaint();
+			scelta.requestFocus();
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

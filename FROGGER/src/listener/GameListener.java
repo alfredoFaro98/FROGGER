@@ -16,7 +16,7 @@ public class GameListener implements KeyListener{
 		if(e.getKeyCode() == e.VK_ESCAPE) {
 			Main.contenitore.removeAll();
 			PanelChooseLivel scelta = new PanelChooseLivel();
-			Main.gameFrame.setSize(Impostazioni.WIDHT_MENU, Impostazioni.HEIGHT_MENU);
+			Main.gameFrame.setSize(Impostazioni.WIDHT_PLAY, Impostazioni.HEIGHT_PLAY);
 			Main.contenitore.add(scelta);
 			Main.contenitore.revalidate();
 			Main.contenitore.repaint();

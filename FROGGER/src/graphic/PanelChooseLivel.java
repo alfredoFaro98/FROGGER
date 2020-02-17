@@ -24,6 +24,7 @@ public class PanelChooseLivel extends JPanel{
 		this.setBackground(Color.green);
 		this.setLayout(new GridLayout(9,3)); //dovrebbero essere tre righe e una colonna--->qui potrei renderlo piu modulare
 		this.createJLabels();
+		this.addKeyListener(new ChooseLivelListener(0, null));
 	}
 	
 	private void createJLabels()
