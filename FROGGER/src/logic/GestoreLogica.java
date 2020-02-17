@@ -76,6 +76,8 @@ public class GestoreLogica implements Runnable{
 		this.creaPersonaggi_4();
 		if(this.livello>1)
 			this.creaCoccodrilli();
+		if(this.livello>2)
+			this.creaSerpenti();
 	}
 	
 	private void creaPersonaggi_2()
@@ -113,6 +115,12 @@ public class GestoreLogica implements Runnable{
 		this.matrix[4][5] = Impostazioni.COCCODRILLO;
 		this.matrix[4][6] = Impostazioni.COCCODRILLO;
 		this.matrix[2][0] = Impostazioni.COCCODRILLO;
+	}
+	
+	private void creaSerpenti()
+	{
+		this.matrix[6][0] = Impostazioni.SNAKE_TAIL;
+		this.matrix[6][1] = Impostazioni.SNAKE_HEAD;
 	}
 	
 	
@@ -254,6 +262,7 @@ public class GestoreLogica implements Runnable{
 		return false;
 	}
 	
+	
 
 	@Override
 	public void run() {
@@ -268,6 +277,7 @@ public class GestoreLogica implements Runnable{
 			this.aggiornaPersonaggiSinistra(3);
 			this.aggiornaPersonaggiDestra(2);
 			this.aggiornaPersonaggiSinistra(4);
+			this.aggiornaPersonaggiDestra(6);
 			
 			try {
 				Thread.sleep(Impostazioni.FPS_GESTORELOGICA);

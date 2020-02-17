@@ -47,6 +47,8 @@ public class Impostazioni {
 	public final static int ROCK = 8;
 	public final static int RANA = -1;
 	public final static int COCCODRILLO = 9;
+	public final static int SNAKE_TAIL = 10;
+	public final static int SNAKE_HEAD = 11;
 	
 	//impostazioni FPS
 	public static final int FPS_GESTORELOGICA = 1200;

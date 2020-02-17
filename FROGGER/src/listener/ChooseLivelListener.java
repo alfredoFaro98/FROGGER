@@ -61,7 +61,7 @@ public class ChooseLivelListener implements MouseListener {
 			break;
 		case 2:
 			Main.contenitore.removeAll();
-			PanelPlay scelta3 = new PanelPlay(2);
+			PanelPlay scelta3 = new PanelPlay(3);
 			Main.gameFrame.setSize(Impostazioni.WIDHT_PLAY, Impostazioni.HEIGHT_PLAY);
 			Main.contenitore.add(scelta3);
 			Main.contenitore.revalidate();

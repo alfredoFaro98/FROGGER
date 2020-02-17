@@ -33,6 +33,7 @@ public class GestoreImmagini {
 	private ArrayList<Image> buttonsLivel = null;
 	private Image chooseLivel = null;
 	private ArrayList<Image> croco = null;
+	private ArrayList<Image> snake = null;
 	
 	public GestoreImmagini() {
 		
@@ -44,6 +45,7 @@ public class GestoreImmagini {
 		this.caricaButtonsLivel();
 		this.loadChooseTitle();
 		this.caricaCroco();
+		this.loadSnake();
 	}
 	
 	private void caricaCroco()
@@ -102,7 +104,23 @@ public class GestoreImmagini {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+	}
+	
+	public void loadSnake()
+	{
+		this.snake = new ArrayList<Image>();
+		try {
+			this.snake.add(ImageIO.read(new File("risorse" + File.separator + "snakeTail.png")));
+			this.snake.add(ImageIO.read(new File("risorse" + File.separator + "snakeHead.png")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<Image> getSnake()
+	{
+		return this.snake;
 	}
 	
 	public void caricaButtonsLivel() {

@@ -42,7 +42,17 @@ public class PanelPlay extends JPanel implements Runnable{
 		{
 			for(int j = 0; j<Impostazioni.COLS; j++)
 			{
-				if(gestoreLogica.matrix[i][j] == Impostazioni.COCCODRILLO)
+				if(gestoreLogica.matrix[i][j] == Impostazioni.SNAKE_TAIL)
+				{	
+					g.drawImage(Main.immagini.getSafezone(), j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
+					g.drawImage(Main.immagini.getSnake().get(0), j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
+				}
+				else if(gestoreLogica.matrix[i][j] == Impostazioni.SNAKE_HEAD)
+				{	
+					g.drawImage(Main.immagini.getSafezone(), j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
+					g.drawImage(Main.immagini.getSnake().get(1), j*Impostazioni.SIZE_TILES, i*Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES,Impostazioni.SIZE_TILES, null);
+				}
+				else if(gestoreLogica.matrix[i][j] == Impostazioni.COCCODRILLO)
 				{
 					if(i == 1 || i == 2)
 					{
