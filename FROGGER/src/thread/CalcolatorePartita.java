@@ -167,7 +167,7 @@ public class CalcolatorePartita implements Runnable{
 //			}
 			
 			try {
-				Thread.sleep(200);
+				Thread.sleep(400);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
