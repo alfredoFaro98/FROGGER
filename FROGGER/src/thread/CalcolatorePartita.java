@@ -57,31 +57,6 @@ public class CalcolatorePartita implements Runnable{
 			facts.clearFilesPaths();
 			facts.clearPrograms();
 			
-			if(g.collisioneConNemico())
-			{
-				this.g.vite--;
-				this.g.rana.setX(Impostazioni.SIZE_TILES*4);
-				this.g.rana.setY(Impostazioni.SIZE_TILES*12);
-				if(this.g.vite == 0)
-					this.g.inGioco = false;
-			}
-			if(g.collisioneConBuco() && g.inGioco)
-			{
-				if(this.g.arrivate.size() == Impostazioni.OBIETTIVO) {
-					this.g.vinto = true;
-					this.g.inGioco = false;
-				}
-				else 
-					this.g.rana.setX(Impostazioni.SIZE_TILES*4);
-					this.g.rana.setY(Impostazioni.SIZE_TILES*12);
-				
-			}
-			try {
-				Thread.sleep(Impostazioni.FPS_CALCOLATORE_PARTITA);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			
 			int frogRow = this.g.rana.getRow();
 			try {
 				
@@ -104,11 +79,14 @@ public class CalcolatorePartita implements Runnable{
 					if(frogRow < 12)
 						valRowSup = this.g.matrix[frogRow+1][j];
 					
-					if(valRowPrec == Impostazioni.AUTO || valRowPrec == Impostazioni.CAMION)
+					if(valRowPrec == Impostazioni.AUTO || valRowPrec == Impostazioni.CAMION || valRowPrec == Impostazioni.SNAKE_HEAD || valRowPrec == Impostazioni.SNAKE_TAIL)
 						facts.addObjectInput(new Elemento(frogRow-1, j));
 					
-					if(valRowCorr == Impostazioni.AUTO || valRowCorr == Impostazioni.CAMION)
+					if(valRowCorr == Impostazioni.AUTO || valRowCorr == Impostazioni.CAMION || valRowCorr == Impostazioni.SNAKE_HEAD || valRowCorr == Impostazioni.SNAKE_TAIL)
 						facts.addObjectInput(new Elemento(frogRow, j));
+					
+					if(valRowSup == Impostazioni.AUTO || valRowSup == Impostazioni.CAMION || valRowSup == Impostazioni.SNAKE_HEAD || valRowSup == Impostazioni.SNAKE_TAIL)
+						facts.addObjectInput(new Elemento(frogRow+1, j));
 					
 					if(valRowPrec == Impostazioni.TARTARUGHE || valRowPrec == Impostazioni.TRONCO)  
 						facts.addObjectInput(new Aiutante(frogRow-1, j));
@@ -163,8 +141,33 @@ public class CalcolatorePartita implements Runnable{
 				
 			}
 			
+			if(g.collisioneConNemico())
+			{
+				this.g.vite--;
+				this.g.rana.setX(Impostazioni.SIZE_TILES*4);
+				this.g.rana.setY(Impostazioni.SIZE_TILES*12);
+				if(this.g.vite == 0)
+					this.g.inGioco = false;
+			}
+			if(g.collisioneConBuco() && g.inGioco)
+			{
+				if(this.g.arrivate.size() == Impostazioni.OBIETTIVO) {
+					this.g.vinto = true;
+					this.g.inGioco = false;
+				}
+				else 
+					this.g.rana.setX(Impostazioni.SIZE_TILES*4);
+					this.g.rana.setY(Impostazioni.SIZE_TILES*12);
+				
+			}
+//			try {
+//				Thread.sleep(Impostazioni.FPS_CALCOLATORE_PARTITA);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+			
 			try {
-				Thread.sleep(Impostazioni.FPS_GESTORELOGICA/6);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
