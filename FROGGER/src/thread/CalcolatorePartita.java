@@ -160,11 +160,6 @@ public class CalcolatorePartita implements Runnable{
 					this.g.rana.setY(Impostazioni.SIZE_TILES*12);
 				
 			}
-//			try {
-//				Thread.sleep(Impostazioni.FPS_CALCOLATORE_PARTITA);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
 			
 			try {
 				Thread.sleep(400);
