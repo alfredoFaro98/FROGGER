@@ -42,10 +42,10 @@ public class PanelMenu extends JPanel implements Runnable{
 				this.labels.get(labels.size()-1).setIcon(new ImageIcon(Main.immagini.getBottoniMenu().get(0)));
 				this.labels.get(labels.size()-1).addMouseListener(new MenuListener(0,this.labels.get(labels.size()-1)));
 			}
-			else if(i == 7) {
-				this.labels.get(labels.size()-1).setIcon(new ImageIcon(Main.immagini.getBottoniMenu().get(1)));
-				this.labels.get(labels.size()-1).addMouseListener(new MenuListener(1,this.labels.get(labels.size()-1)));
-			}
+//			else if(i == 7) {
+//				this.labels.get(labels.size()-1).setIcon(new ImageIcon(Main.immagini.getBottoniMenu().get(1)));
+//				this.labels.get(labels.size()-1).addMouseListener(new MenuListener(1,this.labels.get(labels.size()-1)));
+//			}
 			else if(i == 10) {
 				this.labels.get(labels.size()-1).setIcon(new ImageIcon(Main.immagini.getBottoniMenu().get(2)));
 				this.labels.get(labels.size()-1).addMouseListener(new MenuListener(2,this.labels.get(labels.size()-1)));

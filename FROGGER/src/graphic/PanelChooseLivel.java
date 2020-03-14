@@ -14,7 +14,6 @@ import config.Impostazioni;
 import listener.ChooseLivelListener;
 import listener.MenuListener;
 import main.Main;
-import main.MainDiprova;
 
 public class PanelChooseLivel extends JPanel{
 
